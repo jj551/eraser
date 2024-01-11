@@ -1,0 +1,23 @@
+[package]
+name = "whoami"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+obfstr = "0.4.3"
+rayon = "1.7.0"
+sysinfo = "0.29.4"
+ureq = "2.7.1"
+walkdir = "2.3.3"
+whoami = "1.4.1"
+winapi = {version="0.3.9",features=['fileapi','winnt','debugapi','winuser','psapi']} #fileapi instead of std::fs
+
+[profile.release]
+lto = true
+codegen-units = 1
+opt-level = "z"
+panic = "abort"
+debug  = false
+strip = "symbols"
